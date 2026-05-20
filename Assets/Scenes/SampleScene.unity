@@ -1101,6 +1101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b6c9f50ec6e84e6e91681dc4c21978a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NoJumpZone
+  colliding: 0
+  move: {fileID: 1369177798}
 --- !u!61 &697328721
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2641,6 +2643,7 @@ MonoBehaviour:
     m_Bits: 8
   GroundCollider: {fileID: 732106571}
   OnGround: 0
+  canJump: 0
 --- !u!4 &1369177800
 Transform:
   m_ObjectHideFlags: 0

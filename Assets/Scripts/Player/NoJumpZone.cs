@@ -16,15 +16,28 @@ public class NoJumpZone : MonoBehaviour
     {
         if(colliding == true)
         {
-            
+            move.canJump = false;
         }
+        else if(colliding == false)
+        {
+            move.canJump = true;
+        }
+
+
         
     }
 
     void OnTriggerEnter2D (Collider2D col)
     {
-        Debug.Log("yellow no jump muahaha");
-        colliding = true;
-        
+        if (col == true)
+        {
+            Debug.Log("yellow no jump muahaha");
+            colliding = true;
+        }
+        else
+        {
+            colliding = false;
+            Debug.Log("awe man you can jump");
+        }
     }
 }

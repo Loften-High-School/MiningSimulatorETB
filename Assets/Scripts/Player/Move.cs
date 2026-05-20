@@ -15,19 +15,21 @@ public class Move : MonoBehaviour
     public LayerMask GroundLayer;
     public BoxCollider2D GroundCollider;
     public bool OnGround;
+    public bool canJump;
 
 
     void Start()
     {
        rb = GetComponent<Rigidbody2D>();
        OnGround = true;
+       canJump = true;
     }
     void Update()
     {
         //moves left and right
         moveX = Input.GetAxisRaw("Horizontal");
 
-        if(Input.GetKeyDown(KeyCode.Space) && OnGround)
+        if(Input.GetKeyDown(KeyCode.Space) && OnGround && canJump == true)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, JumpForce);
             OnGround = false; 
