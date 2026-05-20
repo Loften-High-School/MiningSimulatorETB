@@ -9,6 +9,7 @@ public class Crouch : MonoBehaviour
 
     public Transform headCheck;
     public float headCheckLength;
+    public bool crouching;
 
     LayerMask GroundLayer;
     private Vector2 normalHeight;
@@ -31,6 +32,7 @@ public class Crouch : MonoBehaviour
         {
             if(transform.localScale.y != crouchHeight)
             transform.localScale = Vector2.Lerp(transform.localScale, new Vector2(normalHeight.x, crouchHeight), 0.1f);
+            crouching = false;
         }
         else 
         {
