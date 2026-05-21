@@ -16,6 +16,7 @@ public class Move : MonoBehaviour
     public BoxCollider2D GroundCollider;
     public bool OnGround;
     public bool canJump;
+      public bool crouching;
 
 
     void Start()
@@ -33,6 +34,7 @@ public class Move : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, JumpForce);
             OnGround = false; 
+            crouching =false;
         } 
 
     }
@@ -42,13 +44,25 @@ public class Move : MonoBehaviour
         if(GroundLayer == (1 << other.gameObject.layer))
         {
             OnGround = true;
+            crouching =false;
         }
+
     }
 
     void FixedUpdate()
     {
-        movement = new Vector2(moveX * moveSpeed, GetComponent<Rigidbody2D>().linearVelocity.y);
-        rb.linearVelocity = movement;
-    }
+       
+       if (rb.position.y < - 3.6890f)
+        {
+            movement = new Vector2(moveX * moveSpeed, GetComponent<Rigidbody2D>().linearVelocity.y);
+            rb.linearVelocity = movement;
+            canJump = true;
+        }
+        else{
+            canJump = false;
+            rb.linearVelocity = movement;
 
+        }
+
+}
 }
